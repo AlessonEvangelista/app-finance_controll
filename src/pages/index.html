@@ -3,25 +3,28 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <title>Index</title>
         
         <style>
-            body { font-family: 'Montserrat', sans-serif; text-decoration: none; background: #f8f9fa; }
+            body { font-family: 'Montserrat', sans-serif; text-decoration: none; background: #f8f9fa; margin: 0; padding: 0; }
             nav { font-size: 20px; background-color: #011a33 !important; color: #fff; }
-            footer { }
+            footer {     border-radius: 5px; background-color: #9ebbef; display: grid; position: absolute; bottom: 0; left: 0; right: 0; }
+            .navbar { margin: 0; padding: 10px; border-radius: 5px; display: grid; }
+            .btn-bottom { width: 33%; text-align: center; padding: 25px 15px; }
+            .btn-bottom:hover { background-color: #6691dc; transition: 1s; }
         </style>
 
     </head>
     <body>
 
-        <nav class="navbar navbar-light justify-content-between">
-            <div style="width: 100%; display: inline; padding: 5px 0; border-bottom: 1px solid #696a6b;">
+        <nav class="navbar">
+            <div style="width: 95%; display: inline; padding: 7px; border-bottom: 1px solid #696a6b;">
                 <a class="navbar-brand"> <%= pageInfo.title %> </a>
             </div>
-            <div style="width: 100%; display: inline; padding: 7px; text-align: right;">
+            <div style="width: 95%; display: inline; padding: 7px; text-align: right;">
                 <span> VALOR TOTAL: <%= pageInfo.total %> </span>
             </div>
         </nav>
@@ -29,19 +32,17 @@
         <section></section>
 
         <footer>
-            <div class="container" style="width: 80%;">
-                <div class="row">
-                    <div class="col align-self-start">
-                    One of three columns
-                    </div>
-                    
-                    <div class="col align-self-center">
-                    One of three columns
-                    </div>
-                    
-                    <div class="col align-self-end">
-                    One of three columns
-                    </div>
+            <div class="container" style="width: 100%; display: flex;">
+                <div class="btn-bottom left">
+                    <i class="fa fa-arrow-left w3-xxxlarge"></i>
+                </div>
+                
+                <div class="btn-bottom center">
+                    <i class="fa fa-bars w3-xxxlarge"></i>
+                </div>
+                
+                <div class="btn-bottom right">
+                    <i class="fa fa-arrow-right w3-xxxlarge"></i>
                 </div>
             </div>
         </footer>
