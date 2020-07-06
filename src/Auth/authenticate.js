@@ -8,8 +8,6 @@ class Autenticacao {
         await doc.useServiceAccountAuth(credentials);
         await doc.loadInfo();
 
-        console.log(await doc.loadInfo());
-        
         return doc;
     }
 }
