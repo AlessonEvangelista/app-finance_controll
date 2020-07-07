@@ -9,12 +9,21 @@
         <title>Index</title>
         
         <style>
+            body, html { height: 100%;}
             body { font-family: 'Montserrat', sans-serif; text-decoration: none; background: #f8f9fa; margin: 0; padding: 0; }
             nav { font-size: 20px; background-color: #011a33 !important; color: #fff; }
             footer {     border-radius: 5px; background-color: #9ebbef; display: grid; position: absolute; bottom: 0; left: 0; right: 0; }
             .navbar { margin: 0; padding: 10px; border-radius: 5px; display: grid; }
             .btn-bottom { width: 33%; text-align: center; padding: 25px 15px; }
             .btn-bottom:hover { background-color: #6691dc; transition: 1s; }
+
+            section { height: 77%; }
+            .conainer { width: 100%; margin: 0; padding: 10px; border: none; }
+            .resume { width: 98%; margin: 1% 1%; border: 1px solid #ddd; border-radius: 5px; position: relative; height: 100%; display: none; }
+            .dashboard { width: 98%; margin: 1% 1%; border: 1px solid #ddd; border-radius: 5px; position: relative; height: 100%; display: block; }
+            .planning { width: 98%; margin: 1% 1%; border: 1px solid #ddd; border-radius: 5px; position: relative; height: 100%; display: none; }
+            
+            .form-new-request { width: 100%; margin: 0; border: 1px solid #ddd; border-radius: 5px; position: absolute; background-color: #f8f9fa; height: 90%; display: none; z-index: 2; }
         </style>
 
     </head>
@@ -29,22 +38,72 @@
             </div>
         </nav>
 
-        <section></section>
+        <section>
+
+            <div class="container resume" id="resume">
+                <h2 style="padding: 10px 25px; color: #011a33; font-weight: 900;">:: RESUMO</h2>
+            </div>
+            <div class="container dashboard" id="dashboard">
+                <h2 style="padding: 10px 25px; color: #011a33; font-weight: 900; display: inline-block; width: 55%;">:: DASHBOARD</h2> 
+                <button style="padding: 7px 25px; background-color: darkblue; color: #fff; font-weight: 900;" onclick="callToForm()"> Novo </button>
+            </div>
+            <div class="container planning" id="planning">
+                <h2 style="padding: 10px 25px; color: #011a33; font-weight: 900;">:: PLANNING</h2>
+            </div>
+
+            <div class="container form-new-request" id="formNewRequest">
+                <h2 style="padding: 10px 25px; color: #011a33; font-weight: 900; display: inline-block; width: 55%;">:: NV REGISTRO</h2>
+                <button style="padding: 7px 25px; background-color: darkblue; color: #fff; font-weight: 900;" onclick="closeToForm()"> < Sair </button>
+                
+                <form action="" method="POST">
+
+                </form>
+            </div>
+
+        </section>
 
         <footer>
             <div class="container" style="width: 100%; display: flex;">
-                <div class="btn-bottom left">
+                <div class="btn-bottom left" onclick="callToPage('resume')">
                     <i class="fa fa-arrow-left w3-xxxlarge"></i>
                 </div>
                 
-                <div class="btn-bottom center">
+                <div class="btn-bottom center" onclick="callToPage('dashboard')">
                     <i class="fa fa-bars w3-xxxlarge"></i>
                 </div>
                 
-                <div class="btn-bottom right">
+                <div class="btn-bottom right" onclick="callToPage('planning')">
                     <i class="fa fa-arrow-right w3-xxxlarge"></i>
                 </div>
             </div>
         </footer>
+
+        <script>
+            function callToPage(el) {
+                var display = document.getElementById(el).style.display;
+
+                if( display == "none" || display == "" ) {
+                    document.getElementById("resume").style.display = "none";
+                    document.getElementById("dashboard").style.display = "none";
+                    document.getElementById("planning").style.display = "none";
+                    document.getElementById(el).style.display = "block";
+                    document.getElementById(el).style.transition = "2s";
+                }
+            }
+            function callToForm() {
+                document.getElementById("resume").style.display = "none";
+                document.getElementById("dashboard").style.display = "none";
+                document.getElementById("planning").style.display = "none";
+
+                document.getElementById('formNewRequest').style.display = "block";
+            }
+            function closeToForm() {
+                document.getElementById("resume").style.display = "none";
+                document.getElementById("planning").style.display = "none";
+                document.getElementById('formNewRequest').style.display = "none";
+
+                document.getElementById("dashboard").style.display = "block";
+            }
+        </script>
     </body>
 </html>

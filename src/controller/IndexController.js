@@ -11,7 +11,11 @@ class IndexController {
         await sheet.loadCells('B2:C10');
         pageObject.valorTotal = sheet.getCellByA1('C10').formattedValue;
         // Closed getFullValue()
-        //await this.getFullValue(spread);
+        /*try {
+            pageObject.valorTotal = await this.getFullValue(spread);
+        } catch(err) {
+            console.log(err.message);
+        }*/
 
 
         return res.render('index.html', { pageInfo: {"title": pageObject.title, "total": pageObject.valorTotal} });
